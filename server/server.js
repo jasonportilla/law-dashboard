@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 5000;
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
 //DB Config
 const db = require('./config/keys').mongoURI;
 
