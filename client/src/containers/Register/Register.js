@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
-import { Row, Container } from 'reactstrap';
+import { Row, Container, Form } from 'reactstrap';
 import RegisterForm from '../../components/Register/RegisterForm';
 import './Register.css';
 import logo from '../../assets/images/logo.svg';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      password2: '',
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('email: ', this.state.email);
+    console.log('email: ', this.state.username);
+    console.log('email: ', this.state.password);
+    console.log('email: ', this.state.password2);
+  }
   render() {
     return (
       <Container fluid className="register-background">
@@ -19,7 +37,9 @@ class Register extends Component {
                 </div>
               </div>
               <div className="form-box">
-                <RegisterForm />
+                <Form onSubmit={this.handleSubmit} className="register-fields">
+                  <RegisterForm handleSubmit={this.handleSubmit} {...this.state} />
+                </Form>
               </div>
             </div>
           </Container>
