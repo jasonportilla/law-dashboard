@@ -5,7 +5,7 @@ const Router = express.Router();
 // @desc Tests profile Router
 // @access Public
 Router.get('/test', (req, res) => {
-  res.json({ msg: "Profile Works"});
+	res.json({ msg: 'Profile Works'});
 });
 
 module.exports = Router;

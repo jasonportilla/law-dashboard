@@ -15,19 +15,19 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose.connect(db)
-.then(() => {
-  console.log('MongoDB connected');
-})
-.catch(err => console.log(err));
+	.then(() => {
+		console.log('MongoDB connected');
+	})
+	.catch(err => console.log(err));
   
 
 app.get('/', (req, res) => {
-  res.json({ message: "hi"});
+	res.json({ message: 'hi'});
 });
 
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 
 app.listen(PORT, () => {
-  console.log(`server listening on port ${PORT}`);
-})
+	console.log(`server listening on port ${PORT}`);
+});
