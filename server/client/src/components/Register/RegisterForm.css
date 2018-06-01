@@ -1,0 +1,9 @@
+.invalid {
+  border-bottom: 2px solid red !important;
+}
+
+.feedback {
+  color: red;
+  margin-left: 40px;
+  margin-top: -20px;
+}
