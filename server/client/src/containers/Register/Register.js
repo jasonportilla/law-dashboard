@@ -23,6 +23,16 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.errors) {
+      return {
+        errors: nextProps.errors,
+      };
+    }
+    return null;
+  }
+
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -35,11 +45,9 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2,
     };
-
     this.props.registerUser(createUser, this.props.history);
   }
   render() {
-    const { errors } = this.props;
     return (
       <Container fluid className="register-background">
         <Row>
@@ -55,7 +63,6 @@ class Register extends Component {
               <div className="form-box">
                 <RegisterForm
                   {...this.state}
-                  errors={errors}
                   registerUser={registerUser}
                   onSubmit={this.onSubmit}
                   onChange={this.onChange}
