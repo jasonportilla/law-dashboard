@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Container } from 'reactstrap';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import RegisterForm from '../../components/Register/RegisterForm';
 import './Register.css';
 import logo from '../../assets/images/logo.svg';
+import { registerUser } from '../../actions/authAction';
 
 class Register extends Component {
   constructor(props) {
@@ -33,11 +36,10 @@ class Register extends Component {
       password2: this.state.password2,
     };
 
-    axios.post('/api/users/register', createUser)
-      .then(res => console.log(res.data))
-      .catch(err => this.setState({ errors: err.response.data }));
+    this.props.registerUser(createUser, this.props.history);
   }
   render() {
+    const { errors } = this.props;
     return (
       <Container fluid className="register-background">
         <Row>
@@ -51,7 +53,13 @@ class Register extends Component {
                 </div>
               </div>
               <div className="form-box">
-                <RegisterForm {...this.state} onSubmit={this.onSubmit} onChange={this.onChange} />
+                <RegisterForm
+                  {...this.state}
+                  errors={errors}
+                  registerUser={registerUser}
+                  onSubmit={this.onSubmit}
+                  onChange={this.onChange}
+                />
               </div>
             </div>
           </Container>
@@ -61,4 +69,15 @@ class Register extends Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  history: PropTypes.object.isRequired,
+  registerUser: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));
