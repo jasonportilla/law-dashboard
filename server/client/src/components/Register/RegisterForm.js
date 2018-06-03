@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Container, Label, Form } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ import './RegisterForm.css';
 const RegisterForm = ({
   errors, onSubmit, onChange, name, email, password, password2,
 }) => {
-  console.log(errors);
+  console.log(typeof (errors));
   return (
     <Container>
       <Form noValidate onSubmit={onSubmit} className="register-fields">
@@ -61,6 +62,16 @@ const RegisterForm = ({
       </Form>
     </Container>
   );
+};
+
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  name: PropTypes.object.isRequired,
+  email: PropTypes.object.isRequired,
+  password: PropTypes.object.isRequired,
+  password2: PropTypes.object.isRequired,
 };
 
 export default RegisterForm;
