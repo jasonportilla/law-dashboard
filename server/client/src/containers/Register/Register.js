@@ -50,7 +50,7 @@ class Register extends Component {
   render() {
     return (
       <Container fluid className="register-background">
-        <Row>
+        <Row className="back-overlay">
           <Container>
             <div className="register-form">
               <div className="form-info">

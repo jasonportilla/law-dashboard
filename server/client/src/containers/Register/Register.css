@@ -4,6 +4,14 @@
   background-size: cover;
   height: 100%;
   overflow: hidden;
+  padding: 0;
+}
+
+.back-overlay {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: rgba(142, 165, 177,0.5);
 }
 
 .register-form {
@@ -16,13 +24,13 @@
 
 .form-box, .form-info {
   width: 600px;
-  min-height: 400px;
+  height: 576px;
   background-color: #fff;
 }
 
 .form-info {
   height: 578px;
-  background-color: rgba(242, 171, 41, 0.8);
+  background-color: rgba(61, 176, 206, 0.8);
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -58,56 +66,11 @@
   margin-right: auto;
 }
 
-.register-fields {
-  width: 100%;
-  margin-top: 50px;
-}
-
-.register-fields label {
-  padding-left: 40px;
-  color: #A19E7A;
-}
-
-.register-fields input {
-  display: block;
-  border: 0;
-  outline: 0;
-  margin-left: 40px;
-  min-width: 80%;
-  background: transparent;
-  border-bottom: 1px solid #DDDDD6;
-  margin-bottom: 25px;
-}
-
-.signup-btn {
-  display: block;
-  background-color: #ECA602;
-  padding: 10px;
-  border: none;
-  color: #fff;
-  margin-bottom: 25px;
-  width: 90%;
-  margin: 20px auto;
-}
-
-.or-login {
-  display: block;
-  text-align: center;
-  font-size: 1rem;
-  color: lightslategray;
-}
-
-.login-link {
-  display: block;
-  text-align: center;
-  margin-bottom: 25px;
-  color: #ECA602;
-}
-
 @media (max-width: 767px) {
  .register-form {
    display: inline-block;
    height: 100%;
+   width: 100%;
  }
 
  .form-box {
@@ -120,8 +83,6 @@
  }
 
  .form-info {
-   margin-top: -40px;
-   height: 150px;
    width: 100%;
  }
 
@@ -133,3 +94,18 @@
    padding-bottom: 25px;
  }
  }
+
+@media (max-width: 414px) {
+  .register-form {
+  width: 415px;
+  margin-left: -15px;
+ }
+}
+
+@media (max-width: 375px) {
+  .register-form {
+  width: 380px;
+  margin-left: -15px;
+ }
+}
+

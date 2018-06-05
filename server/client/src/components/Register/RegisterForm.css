@@ -7,3 +7,60 @@
   margin-left: 40px;
   margin-top: -20px;
 }
+
+.register-fields {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.register-fields label {
+  padding-left: 40px;
+  color: #A19E7A;
+}
+
+.register-fields input {
+  display: block;
+  border: 0;
+  outline: 0;
+  margin-left: 40px;
+  min-width: 80%;
+  background: transparent;
+  border-bottom: 1px solid #DDDDD6;
+  margin-bottom: 25px;
+}
+
+.signup-btn {
+  display: block;
+  background-color: #2AC4E2;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  margin-bottom: 25px;
+  width: 90%;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #445779;
+  transition-duration: 0.3s;
+}
+
+.or-login {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  color: lightslategray;
+}
+
+.login-link {
+  display: block;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2AC4E2;
+}
+
+.login-link:hover {
+  color: #445779;
+  text-decoration: none;
+}
