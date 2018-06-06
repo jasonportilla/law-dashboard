@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import './Dashboard.css';
 
+import Header from '../../components/Header/Header';
+import MainContent from './MainContent/MainContent';
+
 class Dashboard extends Component {
   render() {
     return (
@@ -12,7 +15,7 @@ class Dashboard extends Component {
           </Col>
 
           <Col sm="9" className="header-section bg-dark text-light">
-            <h3>Header section</h3>
+            <Header />
           </Col>
 
         </Row>
@@ -22,8 +25,8 @@ class Dashboard extends Component {
             <h3>Dash Menu section</h3>
           </Col>
 
-          <Col sm="9" className="main-section bg-danger">
-            <h3>Main Content section</h3>
+          <Col sm="9">
+            <MainContent />
           </Col>
 
         </Row>

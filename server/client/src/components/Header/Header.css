@@ -1,0 +1,29 @@
+.header {
+  height: 100%;
+  background: #e8edef;
+}
+
+.header .row {
+  height: 100%;
+  align-items: center;
+}
+
+.header-title {
+  color: #445779;
+}
+
+.header-logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout {
+  font-size: 16px;
+  font: inherit;
+  color: #2ac4e2;
+}
+
+.logout:hover {
+  cursor: pointer;
+  color: #477a97;
+}
