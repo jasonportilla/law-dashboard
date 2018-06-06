@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authAction';
 import './Login.css';
 import LoginForm from '../../components/Login/LoginForm';
 
@@ -18,6 +20,11 @@ class Login extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentDidMount() {
+    if(this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.errors) {
       return {
@@ -27,20 +34,18 @@ class Login extends Component {
     return null;
   }
 
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmit(e) {
     e.preventDefault();
-    const createUser = {
-      name: this.state.name,
+
+    const userData = {
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2,
     };
-    // this.props.registerUser(createUser, this.props.history);
+    this.props.loginUser(userData);
   }
   render() {
     return (
@@ -60,4 +65,9 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, { loginUser })(Login);
