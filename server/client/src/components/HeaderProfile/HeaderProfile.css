@@ -1,0 +1,10 @@
+.header-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.avatar-image {
+  width: 60px;
+}

@@ -96,7 +96,7 @@ router.post('/login', (req, res) => {
 						const payload = { 
 							id: user.id, 
 							name: user.name, 
-							avataer: user.avatar
+							avatar: user.avatar
 						};
 
 						// Sign in Token
