@@ -21,6 +21,8 @@
   font-size: 16px;
   font: inherit;
   color: #2ac4e2;
+  background: none;
+  border: none;
 }
 
 .logout:hover {

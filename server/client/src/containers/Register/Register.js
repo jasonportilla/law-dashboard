@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import RegisterForm from '../../components/Register/RegisterForm';
 import './Register.css';
 import logo from '../../assets/images/logo.svg';
@@ -14,6 +14,7 @@ class Register extends Component {
     this.state = {
       name: '',
       email: '',
+      jobTitle: '',
       password: '',
       password2: '',
       errors: {},
@@ -24,8 +25,8 @@ class Register extends Component {
   }
 
   componentDidMount() {
-    if(this.props.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+    if (this.props.auth.isAuthenticated) {
+      return <Redirect to="/dashboard" />;
     }
   }
 
@@ -38,7 +39,6 @@ class Register extends Component {
     return null;
   }
 
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -48,12 +48,17 @@ class Register extends Component {
     const createUser = {
       name: this.state.name,
       email: this.state.email,
+      jobTitle: this.state.jobTitle,
       password: this.state.password,
       password2: this.state.password2,
     };
     this.props.registerUser(createUser, this.props.history);
   }
   render() {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <Container fluid className="register-background">
         <Row className="back-overlay">
@@ -84,6 +89,7 @@ class Register extends Component {
 
 Register.propTypes = {
   history: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
   registerUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
 };

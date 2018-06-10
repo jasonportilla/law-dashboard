@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { loginUser } from '../../actions/authAction';
 import './Login.css';
 import LoginForm from '../../components/Login/LoginForm';
@@ -21,7 +23,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    if(this.props.auth.isAuthenticated) {
+    if (this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
   }
@@ -40,7 +42,6 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     const userData = {
       email: this.state.email,
       password: this.state.password,
@@ -48,6 +49,10 @@ class Login extends Component {
     this.props.loginUser(userData);
   }
   render() {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <Container fluid className="login-background">
         <div className="login-overlay">
@@ -65,9 +70,15 @@ class Login extends Component {
   }
 }
 
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);

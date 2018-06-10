@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import './RegisterForm.css';
 
 const RegisterForm = ({
-  errors, onSubmit, onChange, name, email, password, password2,
+  errors, onSubmit, onChange, name, jobTitle, email, password, password2,
 }) => (
   <Container>
     <Form noValidate onSubmit={onSubmit} className="register-fields">
@@ -30,6 +30,17 @@ const RegisterForm = ({
         value={email}
       />
       { errors.email && (<div className="feedback">{ errors.email}</div>) }
+
+      <Label for="Job Title">Job Title</Label>
+      <input
+        className={errors.jobTitle ? 'invalid' : ''}
+        type="text"
+        onChange={onChange}
+        name="jobTitle"
+        placeholder="office assistant"
+        value={jobTitle}
+      />
+      { errors.jobTitle && (<div className="feedback">{ errors.jobTitle}</div>) }
 
       <Label for="password">Password</Label>
       <input
@@ -66,6 +77,7 @@ RegisterForm.propTypes = {
   errors: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   password2: PropTypes.string.isRequired,
 };

@@ -29,7 +29,7 @@ export const loginUser = userData => (dispatch) => {
     .catch(err => dispatch({
       type: GET_ERRORS,
       payload: err.response.data,
-    }) );
+    }));
 };
 
 // Set Logged in User

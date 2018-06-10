@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import './Dashboard.css';
 import { logoutUser } from '../../actions/authAction';
@@ -20,20 +21,22 @@ class Dashboard extends Component {
     this.props.logoutUser();
   }
   render() {
-    console.log(this.props);
     const { user, isAuthenticated } = this.props.auth;
+    if (!isAuthenticated) {
+      return <Redirect to="/login" />;
+    }
+
     return (
       <Container fluid>
         <Row className="top-section">
           <Col sm="3" className="profile-section bg-success">
             <HeaderProfile
-              onLogoutClick={this.onLogoutClick}
               user={user}
             />
           </Col>
 
           <Col sm="9" className="header-section bg-dark text-light">
-            <Header />
+            <Header onLogoutClick={this.onLogoutClick} />
           </Col>
 
         </Row>

@@ -12,7 +12,7 @@ const HeaderProfile = props => (
       />
       <div className="header-profile__name">
         <h4>{ props.user.name }</h4>
-        <h5 className="text-center">Marilyn Portilla</h5>
+        <h5 className="header-profile__title text-center">Marilyn Portilla</h5>
       </div>
     </div>
   </Fragment>
