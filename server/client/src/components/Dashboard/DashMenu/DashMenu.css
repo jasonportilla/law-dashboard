@@ -1,0 +1,37 @@
+.dash-menu__container {
+  padding: 0;
+}
+
+.dash-menu__items {
+  list-style: none;
+  padding: 0;
+}
+
+.dash-menu__item {
+  font-size: 16px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #43a0ad;
+  color: #d6e4e9;
+}
+
+.dash-menu__item:first-child {
+  margin-top: 30px;
+}
+
+.dash-menu__name {
+  margin-left: 0px;
+}
+
+.dash-menu__icons {
+  width: 30px;
+}
+
+@media (min-width: 1020px) {
+  .dash-menu__item {
+    font-size: 24px;
+  }
+
+  .dash-menu__name {
+    margin-left: 20px;
+  }
+}

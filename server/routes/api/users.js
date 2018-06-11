@@ -4,7 +4,6 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
-const passport = require('passport');
 
 //Load User model
 const User = require('../../models/User');
@@ -32,36 +31,37 @@ router.post('/register', (req, res) => {
 				errors.email = 'email already taken';
 				return res.status(400).json(errors);
 			}
-
+			else {
 			//get avatar profile image
-			const avatar = gravatar.url(req.body.avatar, {
-				s: '200',
-				r: 'pg',
-				d: 'mm'
-			});
-
-			// Create new user and save to the database
-			const newUser = new User({
-				name: req.body.name,
-				email: req.body.email, 
-				jobTitle: req.body.jobTitle,
-				avatar,
-				password: req.body.password
-			});
-
-			// Salting password and ecrypting it for security purposes
-			// Salt is before saving to database
-			bcrypt.genSalt(10, (err, salt) => {
-				bcrypt.hash(newUser.password, salt, (err, hash) => {
-					if(err) throw err;
-					newUser.password = hash;
-
-					//once password is salted, save the user to the database
-					newUser.save()
-						.then(user => res.json(user))
-						.catch(err => res.status(400).json(err));
+				const avatar = gravatar.url(req.body.email, {
+					s: '200',
+					r: 'pg',
+					d: 'mm'
 				});
-			});
+
+				// Create new user and save to the database
+				const newUser = new User({
+					name: req.body.name,
+					email: req.body.email, 
+					jobTitle: req.body.jobTitle,
+					avatar,
+					password: req.body.password
+				});
+
+				// Salting password and ecrypting it for security purposes
+				// Salt is before saving to database
+				bcrypt.genSalt(10, (err, salt) => {
+					bcrypt.hash(newUser.password, salt, (err, hash) => {
+						if(err) throw err;
+						newUser.password = hash;
+
+						//once password is salted, save the user to the database
+						newUser.save()
+							.then(user => res.json(user))
+							.catch(err => res.status(400).json(err));
+					});
+				});
+			}
 		});
 });
 
@@ -96,7 +96,8 @@ router.post('/login', (req, res) => {
 						// create jwt payload
 						const payload = { 
 							id: user.id, 
-							name: user.name, 
+							name: user.name,
+							jobTitle: user.jobTitle,
 							avatar: user.avatar
 						};
 

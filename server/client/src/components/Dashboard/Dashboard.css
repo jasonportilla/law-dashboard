@@ -1,0 +1,19 @@
+.top-section {
+  height: 100px;
+}
+.dashboard {
+  height: 87vh;
+}
+
+.header-section {
+  padding: 0;
+}
+
+.menu-section {
+  background: #335971;
+}
+
+.profile-section {
+  background: #e8edef;
+  padding: 0;
+}

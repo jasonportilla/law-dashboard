@@ -1,11 +1,12 @@
 .header {
   height: 100%;
-  background: #e8edef;
+  background: #bcbbbb;
 }
 
 .header .row {
   height: 100%;
   align-items: center;
+  margin: 0;
 }
 
 .header-title {
@@ -18,14 +19,14 @@
 }
 
 .logout {
-  font-size: 16px;
-  font: inherit;
-  color: #2ac4e2;
+  font-size: 24px;
+  color: #738d9c;
   background: none;
   border: none;
 }
 
 .logout:hover {
   cursor: pointer;
-  color: #477a97;
+  color: #a3cfd9;
+  transition-duration: 0.2s;
 }

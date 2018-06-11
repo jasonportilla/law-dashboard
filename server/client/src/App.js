@@ -6,14 +6,14 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser } from './actions/authAction';
 
 import './App.css';
-import Register from './containers/Register/Register';
-import Dashboard from './containers/Dashboard/Dashboard';
-import Login from './containers/Login/Login';
+import Register from './components/Register/Register';
+import Dashboard from './components/Dashboard/Dashboard';
+import Login from './components/Login/Login';
 
 import store from './store';
 
 // check for token
-if(localStorage.jwtToken) {
+if (localStorage.jwtToken) {
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode Token and get user info and exp

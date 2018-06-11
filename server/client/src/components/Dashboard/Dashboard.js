@@ -7,7 +7,8 @@ import './Dashboard.css';
 import { logoutUser } from '../../actions/authAction';
 
 import Header from '../../components/Header/Header';
-import HeaderProfile from '../../components/HeaderProfile/HeaderProfile';
+import HeaderProfile from './HeaderProfile/HeaderProfile';
+import DashMenu from './DashMenu/DashMenu';
 import MainContent from './MainContent/MainContent';
 
 class Dashboard extends Component {
@@ -29,24 +30,24 @@ class Dashboard extends Component {
     return (
       <Container fluid>
         <Row className="top-section">
-          <Col sm="3" className="profile-section bg-success">
+          <Col sm="3" md="2" className="profile-section">
             <HeaderProfile
               user={user}
             />
           </Col>
 
-          <Col sm="9" className="header-section bg-dark text-light">
+          <Col sm="9" md="10" className="header-section">
             <Header onLogoutClick={this.onLogoutClick} />
           </Col>
 
         </Row>
 
         <Row className="dashboard">
-          <Col sm="3" className="menu-section bg-primary">
-            <h3>Dash Menu section</h3>
+          <Col sm="3" md="2" className="menu-section">
+            <DashMenu />
           </Col>
 
-          <Col sm="9">
+          <Col sm="9" md="10">
             <MainContent />
           </Col>
 
