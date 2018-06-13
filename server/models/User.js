@@ -11,7 +11,7 @@ const UserSchema = new Schema({
 		type: String,
 		required: true,
 		unique: true,
-		lowecase: true
+		lowercase: true
 	},
 	jobTitle: {
 		type: String,
