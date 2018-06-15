@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const ClientSchema = new Schema({
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: 'users'
+	},
 	firstName: {
 		type: String,
 		required: true
