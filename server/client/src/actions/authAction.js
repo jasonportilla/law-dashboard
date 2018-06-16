@@ -16,6 +16,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 // Create new Client action Funtion
 // eslint-disable-next-line
+
 export const createNewClient = (userData, history) => (dispatch) => {
   axios.post('/api/client-profile/add-client', userData)
     .then(res => history.push('/clients'))
