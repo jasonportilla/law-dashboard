@@ -1,0 +1,12 @@
+.add-client-form > div {
+  display: inline-block;
+}
+
+.add-client-form input {
+  height: 45px;
+  width: 250px;
+  border-radius: 2px;
+  border: 2px solid lightslategray;
+  
+
+}

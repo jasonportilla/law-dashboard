@@ -18,7 +18,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // eslint-disable-next-line
 
 export const createNewClient = (userData, history) => (dispatch) => {
-  axios.post('/api/client-profile/add-client', userData)
+  axios.post('/api/client-profile/', userData)
     .then(res => history.push('/clients'))
     .catch(err => dispatch({
       type: GET_ERRORS,
