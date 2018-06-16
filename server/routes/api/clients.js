@@ -43,7 +43,7 @@ router.get(
 // @desc    Create or edit client profile
 // @access  Private
 router.post(
-	'/',
+	'/add-client',
 	passport.authenticate('jwt', { session: false }),
 	(req, res) => {
 		const { errors, isValid } = validateClientInput(req.body);

@@ -14,6 +14,17 @@ export const registerUser = (userData, history) => (dispatch) => {
     }));
 };
 
+// Create new Client action Funtion
+// eslint-disable-next-line
+export const createNewClient = (userData, history) => (dispatch) => {
+  axios.post('/api/client-profile/add-client', userData)
+    .then(res => history.push('/clients'))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    }));
+};
+
 export const loginUser = userData => (dispatch) => {
   axios.post('/api/users/login', userData)
     .then((res) => {
