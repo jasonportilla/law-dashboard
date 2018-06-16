@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser } from './actions/authAction';
 
@@ -17,19 +17,21 @@ if (localStorage.jwtToken) {
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode Token and get user info and exp
-  const decoded = jwt_decode(localStorage.jwtToken);
+  const decoded = jwtDecode(localStorage.jwtToken);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
 }
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
       <Fragment>
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+        </Switch>
       </Fragment>
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 

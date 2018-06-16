@@ -27,6 +27,8 @@ class Dashboard extends Component {
       return <Redirect to="/login" />;
     }
 
+    console.log(this.props);
+
     return (
       <Container fluid>
         <Row className="top-section">
@@ -48,6 +50,7 @@ class Dashboard extends Component {
           </Col>
 
           <Col sm="9" md="10">
+
             <MainContent />
           </Col>
 

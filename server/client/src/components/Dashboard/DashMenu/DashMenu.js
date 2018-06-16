@@ -5,14 +5,14 @@ import './DashMenu.css';
 
 const dashMenuList = [
   { name: 'Dashboard', icon: 'fas fa-chart-line', page: '/dashboard' },
-  { name: 'Clients', icon: 'fas fa-users', page: '/clients' },
-  { name: 'Payments', icon: 'fas fa-money-bill-alt', page: '/payments' },
-  { name: 'Calendar', icon: 'far fa-calendar-alt', page: '/calendar' },
-  { name: 'Tasks', icon: 'fas fa-tasks', page: '/tasks' },
-  { name: 'Forms', icon: 'fab fa-wpforms', page: '/forms' },
-  { name: 'Documents', icon: 'fas fa-file-alt', page: '/documents' },
-  { name: 'Chat', icon: 'fas fa-comments', page: '/chat' },
-  { name: 'Inovices', icon: 'fas fa-receipt', page: '/invoices' },
+  { name: 'Clients', icon: 'fas fa-users', page: '/dashboard/clients' },
+  { name: 'Payments', icon: 'fas fa-money-bill-alt', page: '/dashboard/payments' },
+  { name: 'Calendar', icon: 'far fa-calendar-alt', page: '/dashboard/calendar' },
+  { name: 'Tasks', icon: 'fas fa-tasks', page: '/dashboard/tasks' },
+  { name: 'Forms', icon: 'fab fa-wpforms', page: '/dashboard/forms' },
+  { name: 'Documents', icon: 'fas fa-file-alt', page: '/dashboard/documents' },
+  { name: 'Chat', icon: 'fas fa-comments', page: '/dashboard/chat' },
+  { name: 'Inovices', icon: 'fas fa-receipt', page: '/dashboard/invoices' },
 ];
 
 const DashMenu = () => {
