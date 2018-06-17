@@ -66,6 +66,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  client: state.client,
   auth: state.auth,
 });
 

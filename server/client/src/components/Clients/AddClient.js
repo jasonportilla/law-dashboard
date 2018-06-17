@@ -65,6 +65,7 @@ class AddClient extends Component {
     this.props.createNewClient(createClient, this.props.history);
   }
   render() {
+    console.log('What are my props', this.props);
     return (
       <div>
         <h1>Add A Client</h1>
@@ -72,7 +73,6 @@ class AddClient extends Component {
           {...this.state}
           onSubmit={this.onSubmit}
           onChange={this.onChange}
-          createNewClient={createNewClient}
         />
       </div>
     );
@@ -86,6 +86,7 @@ AddClient.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  client: state.client,
   auth: state.auth,
   errors: state.errors,
 });

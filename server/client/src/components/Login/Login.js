@@ -49,10 +49,6 @@ class Login extends Component {
     this.props.loginUser(userData);
   }
   render() {
-    const { isAuthenticated } = this.props.auth;
-    if (isAuthenticated) {
-      return <Redirect to="/dashboard" />;
-    }
     return (
       <Container fluid className="login-background">
         <div className="login-overlay">

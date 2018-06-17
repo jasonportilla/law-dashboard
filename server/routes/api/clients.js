@@ -16,6 +16,7 @@ router.get(
 	passport.authenticate('jwt', { session: false }),
 	(req, res) => {
 		Client.find()
+			.populate('clients')
 			.then(profile => {
 				res.json(profile);
 			})
@@ -68,43 +69,15 @@ router.post(
 		if (req.body.courtroom) profileFields.courtroom = req.body.courtroom;
 		if (req.body.county) profileFields.county = req.body.county;
 
-		Client.findOne({ user: req.user.id }).then(profile => {
-			if (profile) {
-				// Update
-				Client.findOneAndUpdate(
-					{ user: req.user.id },
-					{ $set: profileFields },
-					{ new: true }
-				).then(profile => res.json(profile));
-			} else {
-				// Save Profile
-				new Client(profileFields).save().then(profile => res.json(profile));
-			}
-		});
-	}
-);
+		// address
+		profileFields.address = {};
+		if (req.body.street) profileFields.address.street = req.body.street;
+		if (req.body.city) profileFields.address.city = req.body.city;
+		if (req.body.state) profileFields.address.state = req.body.state;
+		if (req.body.zipcode) profileFields.address.zipcode = req.body.zipcode;
 
-// @route   POST api/client-profile/address
-// @desc    Add address to client profile
-// @access  Private
-router.post(
-	'/address',
-	passport.authenticate('jwt', { session: false }),
-	(req, res) => {
-	
-		Client.findOne({ user: req.user.id }).then(profile => {
-			const newAddress = {
-				street: req.body.street,
-				city: req.body.city,
-				state: req.body.state,
-				zipcode: req.body.zipcode,
-			};
-
-			// Add to address array
-			profile.address.unshift(newAddress);
-
-			profile.save().then(profile => res.json(profile));
-		});
+		// Save Profile
+		new Client(profileFields).save().then(profile => res.json(profile));
 	}
 );
 

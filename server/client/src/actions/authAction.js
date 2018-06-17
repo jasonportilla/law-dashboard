@@ -1,7 +1,7 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-import { GET_ERRORS, SET_CURRENT_USER } from '../actions/types';
+import { GET_ERRORS, SET_CURRENT_USER, ADD_NEW_CLIENT, GET_ALL_CLIENTS } from '../actions/types';
 
 // Register User action Funtion
 // eslint-disable-next-line
@@ -20,17 +20,32 @@ export const registerUser = (userData, history) => (dispatch) => {
 export const createNewClient = (userData, history) => (dispatch) => {
   axios.post('/api/client-profile/', userData)
     .then((res) => {
-      console.log('this is the res ', res);
-      const { token } = res.data;
-      console.log(token);
-      const decoded = jwt_decode(token);
-      // Set current user
-      dispatch(setCurrentUser(decoded));
-      history.push('/clients');
+      dispatch({
+        type: ADD_NEW_CLIENT,
+        payload: res.data,
+      });
+      history.push('/dashboard/clients');
     })
     .catch(err => dispatch({
-      type: GET_ERRORS,
-      payload: err.response.data,
+      type: ADD_NEW_CLIENT,
+      payload: {},
+    }));
+};
+
+// get all Clients action Funtion
+// eslint-disable-next-line
+export const getClientList = () => (dispatch) => {
+  axios.get('/api/client-profile/')
+    .then((res) => {
+      console.log('this is the res ',res);
+      dispatch({
+        type: GET_ALL_CLIENTS,
+        payload: res.data,
+      });
+    })
+    .catch(err => dispatch({
+      type: GET_ALL_CLIENTS,
+      payload: {},
     }));
 };
 
