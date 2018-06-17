@@ -7,7 +7,6 @@ class Clients extends Component {
   componentDidMount() {
     this.props.getClientList();
   }
-
   render() {
     const { clients } = this.props.myClients;
 
