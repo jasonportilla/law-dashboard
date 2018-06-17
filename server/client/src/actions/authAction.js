@@ -19,7 +19,15 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 export const createNewClient = (userData, history) => (dispatch) => {
   axios.post('/api/client-profile/', userData)
-    .then(res => history.push('/clients'))
+    .then((res) => {
+      console.log('this is the res ', res);
+      const { token } = res.data;
+      console.log(token);
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
+      history.push('/clients');
+    })
     .catch(err => dispatch({
       type: GET_ERRORS,
       payload: err.response.data,

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 import { createNewClient } from '../../actions/authAction';
 import AddClientForm from './AddClientForm';
@@ -29,13 +28,6 @@ class AddClient extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      return <Redirect to="/dashboard" />;
-    }
-    return <Redirect to="/login" />;
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -69,15 +61,18 @@ class AddClient extends Component {
       zipcode: this.state.zipcode,
       county: this.state.county,
     };
+
     this.props.createNewClient(createClient, this.props.history);
   }
   render() {
     return (
       <div>
-        <AddClientForm 
+        <h1>Add A Client</h1>
+        <AddClientForm
           {...this.state}
           onSubmit={this.onSubmit}
           onChange={this.onChange}
+          createNewClient={createNewClient}
         />
       </div>
     );
@@ -88,7 +83,6 @@ AddClient.propTypes = {
   history: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   createNewClient: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({

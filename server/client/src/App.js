@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login/Login';
 
 import store from './store';
+import PrivateRoute from './components/common/PrivateRoute';
 
 // check for token
 if (localStorage.jwtToken) {
@@ -25,7 +26,7 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <Fragment>
-        <Route path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />

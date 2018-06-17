@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container } from 'reactstrap';
-import { Route } from 'react-router-dom';
 import './MainContent.css';
 
 import Clients from '../../Clients/Clients';
 import AddClient from '../../Clients/AddClient';
+import PrivateRoute from '../../common/PrivateRoute';
 
-const MainContent = () => {
-  return (
-    <Container className="main-content">
-      <Route path="/dashboard/clients" component={Clients} />
-      <Route path="/dashboard/add-client" component={AddClient} />
-    </Container>
-  );
-};
+const MainContent = () => (
+  <Container className="main-content">
+    <PrivateRoute path="/dashboard/clients" component={Clients} />
+    <PrivateRoute path="/dashboard/add-client" component={AddClient} />
+  </Container>
+);
 
 export default MainContent;

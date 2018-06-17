@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row, Col, Table } from 'reactstrap';
 
-const Clients = () => {
-
-    return (
-      <Row>
-        <Col>
-        <h1>Client List</h1>
-          <Table responsive>
+const Clients = () => (
+  <Row>
+    <Col>
+      <h1>Client List</h1>
+      <Table responsive>
         <thead>
           <tr>
             <th>Client</th>
@@ -35,9 +33,8 @@ const Clients = () => {
           </tr>
         </tbody>
       </Table>
-        </Col>
-      </Row>
-  );
-};
+    </Col>
+  </Row>
+);
 
 export default Clients;
