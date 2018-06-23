@@ -24,9 +24,10 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      <Redirect to="/dashboard" />
     }
   }
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.errors) {
       return {
@@ -47,8 +48,14 @@ class Login extends Component {
       password: this.state.password,
     };
     this.props.loginUser(userData);
+
   }
   render() {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      return <Redirect to="/dashboard" />;
+    }
+
     return (
       <Container fluid className="login-background">
         <div className="login-overlay">

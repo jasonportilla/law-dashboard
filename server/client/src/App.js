@@ -22,14 +22,15 @@ if (localStorage.jwtToken) {
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
 }
+
 const App = () => (
   <Provider store={store}>
     <Router>
       <Fragment>
-        <PrivateRoute path="/dashboard" component={Dashboard} />
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </Switch>
       </Fragment>
     </Router>

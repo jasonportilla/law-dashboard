@@ -37,7 +37,7 @@ export const createNewClient = (userData, history) => (dispatch) => {
 export const getClientList = () => (dispatch) => {
   axios.get('/api/client-profile/')
     .then((res) => {
-      console.log('this is the res ',res);
+      console.log(res);
       dispatch({
         type: GET_ALL_CLIENTS,
         payload: res.data,
@@ -81,3 +81,4 @@ export const logoutUser = () => (dispatch) => {
   // set Current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+

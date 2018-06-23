@@ -1,19 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Row, Col, Table } from 'reactstrap';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { getClientList } from '../../actions/authAction';
 
 class Clients extends Component {
   componentDidMount() {
     this.props.getClientList();
   }
+
   render() {
     const { clients } = this.props.myClients;
-
-    if(!clients) {
-      <div>Loading</div>
-    } else {
-      console.log(clients);
+    let getClients;
+    if (!this.props.myClients.clients) {
+      <div>Loading</div>;
+    }
+    if (clients !== null) {
+      getClients = clients.map((client) => {
+        console.log('addres ', client.address);
+        return (
+          <Fragment>
+            <tr>
+              <td>{client.firstName} {client.lastName}</td>
+              <td>{client.courtroom}</td>
+              <td>{client.division}</td>
+              <td>{client.judge}</td>
+              <td>{client.county}</td>
+              <td>{client.email}</td>
+              <td>{client.phone}</td>
+              {/* <td>{client.addressstreet}</td> */}
+              <td>{client.caseAmout}</td>
+            </tr>
+          </Fragment>
+        );
+      });
     }
     return (
       <Row>
@@ -34,17 +54,7 @@ class Clients extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-              </tr>
+              { getClients }
             </tbody>
           </Table>
         </Col>
@@ -53,7 +63,12 @@ class Clients extends Component {
   }
 }
 
+Clients.propTypes = {
+  myClients: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
+  auth: state.auth,
   myClients: state.myClients,
 });
 
