@@ -37,7 +37,6 @@ export const createNewClient = (userData, history) => (dispatch) => {
 export const getClientList = () => (dispatch) => {
   axios.get('/api/client-profile/')
     .then((res) => {
-      console.log(res);
       dispatch({
         type: GET_ALL_CLIENTS,
         payload: res.data,

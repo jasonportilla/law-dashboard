@@ -12,24 +12,29 @@ class Clients extends Component {
   render() {
     const { clients } = this.props.myClients;
     let getClients;
+    let getClientAddress;
     if (!this.props.myClients.clients) {
       <div>Loading</div>;
     }
     if (clients !== null) {
       getClients = clients.map((client) => {
-        console.log('addres ', client.address);
+        if (client.address !== undefined) {
+          getClientAddress = <td>{client.address.street}</td>;
+          //getClientAddress = <td>{client.address.street}</td>;
+        }
+        console.log(client);
         return (
           <Fragment>
             <tr>
               <td>{client.firstName} {client.lastName}</td>
               <td>{client.courtroom}</td>
-              <td>{client.division}</td>
+              <td>{client.caseDivision}</td>
               <td>{client.judge}</td>
               <td>{client.county}</td>
               <td>{client.email}</td>
-              <td>{client.phone}</td>
-              {/* <td>{client.addressstreet}</td> */}
-              <td>{client.caseAmout}</td>
+              <td>{client.phoneNumber}</td>
+              {getClientAddress}
+              <td>{client.caseAmount}</td>
             </tr>
           </Fragment>
         );
