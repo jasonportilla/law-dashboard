@@ -15,7 +15,7 @@ router.get(
 	'/',
 	passport.authenticate('jwt', { session: false }),
 	(req, res) => {
-		Client.find()
+		Client.find({ user: req.user.id })
 			.populate('clients')
 			.then(profile => {
 				res.json(profile);
