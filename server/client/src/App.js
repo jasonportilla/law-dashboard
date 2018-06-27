@@ -28,6 +28,7 @@ const App = () => (
     <Router>
       <Fragment>
         <Switch>
+          <h1>cool</h1>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/dashboard" component={Dashboard} />

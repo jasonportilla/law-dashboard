@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.css';
@@ -22,11 +22,11 @@ const Header = props => (
             <i className="far fa-bell" />
           </li>
           <li>
-            <button
-            onClick={props.onLogoutClick}
-            className="logout"
+            <Button
+              onClick={props.onLogoutClick}
+              className="logout"
             >Logout
-            </button>
+            </Button>
           </li>
         </ul>
       </Col>
@@ -36,7 +36,7 @@ const Header = props => (
 );
 
 Header.propTypes = {
-  onLogoutClick: PropTypes.func.isRequired,
+  onLogoutClick: PropTypes.func,
 };
 
 export default Header;
