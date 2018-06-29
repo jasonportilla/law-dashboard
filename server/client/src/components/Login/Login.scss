@@ -1,8 +1,9 @@
 .login-background {
   height: 100vh;
-  background: url("../../assets/images/login-back.jpg") no-repeat;
+  background: url('../../assets/images/login-back.jpg') no-repeat;
   background-size: cover;
-  padding: 0; }
+  padding: 0;
+}
 
 .login-overlay {
   width: 100%;
@@ -11,26 +12,30 @@
   background-color: rgba(34, 35, 36, 0.7);
   display: flex;
   align-items: center;
-  justify-content: center; }
-
+  justify-content: center;
+}
 .login-form-container {
   min-height: 600px;
   width: 450px;
-  background: rgba(151, 181, 196, 0.3);
-  border-radius: 4px; }
+  background: rgba(151, 181, 196,0.3);
+  border-radius: 4px;
+}
 
 .login-title {
   text-align: center;
   margin-top: 75px;
-  color: #E8EDEF; }
+  color: #E8EDEF;
+}
 
 .login-fields {
   width: 100%;
-  margin-top: 50px; }
+  margin-top: 50px;
+}
 
 .login-fields label {
   padding-left: 40px;
-  color: white; }
+  color: white;
+}
 
 .login-fields input {
   display: block;
@@ -40,7 +45,8 @@
   min-width: 80%;
   background: transparent;
   border-bottom: 1px solid #DDDDD6;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+}
 
 .login-btn,
 .login-active {
@@ -54,19 +60,22 @@
   margin: 20px auto;
   cursor: pointer;
   margin-top: 60px;
-  outline: none; }
+  outline: none;
+}
 
 .login-btn:hover {
   background: #445779;
   transition-duration: 0.3s;
   border-radius: 15px;
-  outline: none; }
+  outline: none;
+}
 
 .or-signup {
   display: block;
   text-align: center;
   font-size: 1rem;
-  color: white; }
+  color: white;
+}
 
 .signup-link {
   display: block;
@@ -78,16 +87,21 @@
   padding: 10px;
   border-radius: 5px;
   margin-top: 25px;
-  background: white; }
+  background: white;
+}
 
 .signup-link:hover {
   color: white;
   text-decoration: none;
   background: #445779;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 @media (max-width: 420px) {
   .login-overlay {
-    background: rgba(61, 176, 206, 0.9); }
+    background: rgba(61, 176, 206, 0.9);
+  }
   .login-form-container {
-    background: none; } }
+    background: none;
+  }
+}
