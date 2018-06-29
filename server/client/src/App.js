@@ -5,7 +5,6 @@ import jwtDecode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser } from './actions/authAction';
 
-import './App.css';
 import Register from './components/Register/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login/Login';
