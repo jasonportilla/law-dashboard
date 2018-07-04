@@ -1,0 +1,11 @@
+.bread-crumbs {
+    display: flex;
+    align-items: center;
+    .caret-arrow {
+        @include equilateral-triangle('right', 6px, $color-secondary-link-active);
+        font-weight: bold;
+        margin-left: $base-spacing * 2;
+        padding-right: $base-spacing * 1.5;
+        display: inline-block;
+    }
+}

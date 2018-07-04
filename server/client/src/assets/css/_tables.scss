@@ -1,0 +1,17 @@
+.table {
+    thead {
+        tr {
+            th {
+                background-color: $color-gray-table-header;
+                border-bottom: none;
+                height: $base-spacing  * 7;
+                vertical-align: middle;
+            }
+        }
+    }
+    tbody {
+        tr:nth-child(2n) {
+            background-color: $bg-muted;
+        }
+    }
+}

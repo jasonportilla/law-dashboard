@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon / Close / X</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WEB_Rx_Refill_Accredo_WIP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Refill-Prescription-Question---Large" transform="translate(-1058.000000, -170.000000)">
+            <g id="Input-Dialog" transform="translate(354.000000, 152.000000)">
+                <g id="Icon-/-Close-/-X" transform="translate(702.000000, 16.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+                    <path d="M8,6.57413558 L3.72266886,2.29680444 C3.32607833,1.9002139 2.68987321,1.90239004 2.29613163,2.29613163 C1.89964494,2.69261831 1.90269127,3.32855569 2.29680444,3.72266886 L6.57413558,8 L2.29680444,12.2773311 C1.90269127,12.6714443 1.89964494,13.3073817 2.29613163,13.7038684 C2.68987321,14.09761 3.32607833,14.0997861 3.72266886,13.7031956 L8,9.42586442 L12.2773311,13.7031956 C12.6739217,14.0997861 13.3101268,14.09761 13.7038684,13.7038684 C14.1003551,13.3073817 14.0973087,12.6714443 13.7031956,12.2773311 L9.42586442,8 L13.7031956,3.72266886 C14.0973087,3.32855569 14.1003551,2.69261831 13.7038684,2.29613163 C13.3101268,1.90239004 12.6739217,1.9002139 12.2773311,2.29680444 L8,6.57413558 Z" fill="#B9BCC0"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
