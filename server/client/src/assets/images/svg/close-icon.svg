@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>close nav</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M9,6.86167132 L2.58361906,0.445290378 C1.98872131,-0.149607368 1.03450885,-0.146457466 0.444025694,0.444025694 C-0.150574206,1.03862559 -0.145891248,1.99243743 0.445290378,2.58361906 L6.86167132,9 L0.445290378,15.4163809 C-0.145891248,16.0075626 -0.150574206,16.9613744 0.444025694,17.5559743 C1.03450885,18.1464575 1.98872131,18.1496074 2.58361906,17.5547096 L9,11.1383287 L15.4163809,17.5547096 C16.0112787,18.1496074 16.9654911,18.1464575 17.5559743,17.5559743 C18.1505742,16.9613744 18.1458912,16.0075626 17.5547096,15.4163809 L11.1383287,9 L17.5547096,2.58361906 C18.1458912,1.99243743 18.1505742,1.03862559 17.5559743,0.444025694 C16.9654911,-0.146457466 16.0112787,-0.149607368 15.4163809,0.445290378 L9,6.86167132 Z" id="path-1"></path>
+    </defs>
+    <g id="WEB-all-post-auth-MVP-headers-for-sympli" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WEB_Nav_Header_Menu-Selected---Small" transform="translate(-339.000000, -83.000000)">
+            <g id="main-nav-menu---Accredo" transform="translate(0.000000, 64.000000)">
+                <g id="close-nav" transform="translate(336.000000, 16.000000)">
+                    <g id="Icon-/-Close-X">
+                        <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                        <g id="Group-2" stroke-width="1" fill-rule="evenodd" transform="translate(3.000000, 3.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Combined-Shape" fill="#009BDF" xlink:href="#path-1"></use>
+                            <g id="Color-/-Global-White" mask="url(#mask-2)" fill="#FFFFFF">
+                                <g transform="translate(-3.000000, -3.000000)" id="color">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
