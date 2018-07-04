@@ -231,36 +231,6 @@ button.mainButton {
   }
 }
 
-/* Form Errors */
-.error-o {
-  background:url(../images/svg/field-error-small.svg) no-repeat center left $base-spacing;
-  height: 32px;
-}
-
-.has-error {
-  input[type="text"], input[type="password"] {
-    background:url(../images/svg/field-error.svg) no-repeat center right $base-spacing;
-  }
-
-  .control-label {
-    color: $color-text-dark;
-  }
-
-  .form-control {
-    // Padding is to prevent text from overlapping error icon on the right of input.
-    padding-right: $base-spacing * 6;
-
-    &, &:focus {
-      border-color: $text-danger;
-      color: $text-danger;
-    }
-  }
-
-  .help-block {
-    color: $text-danger;
-  }
-}
-
 /* Buttons */
 
 // Fixes to overwirte this CSS that steps all over our code -_-
@@ -382,24 +352,6 @@ button.mainButton {
 
   &.btn-sm {
       font-size: $base-spacing * 2;
-  }
-
-  &.btn-default {
-    &.left-arrow-button {
-      background-image: url(../images/svg/arrow_left_green.svg), linear-gradient(to bottom, #FAFAFA 0%, #F0F0F0 100%); 
-      background-position: 0 50%;
-      background-repeat: no-repeat;
-      padding-left: 30px;
-      padding-right: $base-spacing * 1.5;
-    }
-
-    &.right-arrow-button {
-      background-image: url(../images/svg/arrow_right_green.svg), linear-gradient(to bottom, #FAFAFA 0%, #F0F0F0 100%);
-      background-position: right 0 bottom 50%;
-      background-repeat: no-repeat;
-      padding-left: $base-spacing * 1.5;
-      padding-right: 30px;
-    }
   }
 } 
 
