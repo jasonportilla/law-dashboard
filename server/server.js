@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-//const mongoose = require('mongoose');
 var Client = require('mariasql');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -12,16 +11,6 @@ const clients = require('./routes/api/clients');
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
-
-//DB Config
-//const db = require('./config/keys').mongoURI;
-
-// // Connect to MongoDB
-// mongoose.connect(db)
-// 	.then(() => {
-// 		console.log('MongoDB connected');
-// 	})
-// 	.catch(err => console.log(err));
 	
 var c = new Client({
 	host: 'mylawdash.c9os02zlzyuu.us-east-1.rds.amazonaws.com',
@@ -31,11 +20,10 @@ var c = new Client({
 	db: 'law_dashboard'
 });
 
-
+//Maria DB Connection
 c.query('SELECT * FROM test_table;', function(err, rows) {
 	if (err)
 		throw err;
-	console.dir(rows);
 });
 
 c.end();
