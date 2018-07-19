@@ -1,5 +1,8 @@
 {
   "name": "server",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "version": "1.0.0",
   "description": "Law CMS Application for law firms to organize their clients and everyday tasks in one place",
   "main": "server.js",
@@ -20,6 +23,14 @@
     "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.13.7",
+    "prettier-eslint": "^8.8.2"
   }
 }
