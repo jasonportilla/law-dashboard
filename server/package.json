@@ -1,38 +1,25 @@
 {
-  "name": "law-hub-server",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Law CRM for small law firms",
+  "description": "Law CMS Application for law firms to organize their clients and everyday tasks in one place",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Jason Portilla",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "concurrently": "^3.5.1",
+    "concurrently": "^3.6.0",
     "express": "^4.16.3",
-    "gravatar": "^1.6.0",
-    "jsonwebtoken": "^8.2.1",
-    "lodash": "^4.17.10",
-    "mariasql": "^0.2.6",
-    "mongoose": "^5.1.2",
+    "jsonwebtoken": "^8.3.0",
+    "mysql": "^2.16.0",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "validator": "^10.2.0"
+    "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.18.3"
   }
 }
