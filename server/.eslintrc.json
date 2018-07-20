@@ -1,5 +1,8 @@
 {
-  "extends": ["eslint:recommended"],
+  "extends": [
+    "prettier/standard",
+    "eslint:recommended"
+  ],
   "env": {
     "node": true,
     "browser": true,
