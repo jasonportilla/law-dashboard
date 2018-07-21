@@ -1,6 +1,5 @@
 {
   "extends": [
-    "prettier/standard",
     "eslint:recommended"
   ],
   "env": {
@@ -18,7 +17,7 @@
       "before": false,
       "after": true
     }],
-    "eol-last": ["error", "always"],
+    "eol-last": ["error", "never"],
     "indent": [2, "tab"],
     "no-multiple-empty-lines": ["error"],
     "no-new-symbol": "error",

@@ -7,7 +7,7 @@ const state = {
 
 
 //This will be the public function to create a mysql connection
-exports.connect = function (mode) {
+exports.connect = function () {
 
 	//This is the current state variable which will be the
 	//mysql pool
