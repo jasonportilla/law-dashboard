@@ -1,6 +1,5 @@
 {
   "extends": [
-    "prettier/standard",
     "eslint:recommended"
   ],
   "env": {

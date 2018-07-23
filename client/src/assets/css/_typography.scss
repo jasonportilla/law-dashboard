@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  font-family: 'Rubik-Light', Arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: $color-text-dark;
@@ -79,7 +79,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-  font-family: 'Rubik-Regular';
+  font-family: 'Lato-Regular';
   font-size: $base-spacing * 2;
   line-height: $base-spacing * 3;
   margin-bottom: 0;
@@ -94,7 +94,7 @@ a {
   color: $color-primary;
   cursor: pointer;
   text-decoration: underline;
-  font-family: 'Rubik-Regular';
+  font-family: 'Lato-Regular';
 }
 
 small, .text-small {
@@ -102,18 +102,18 @@ small, .text-small {
 }
 
 strong, .text-strong {
-  font-family: 'Rubik-Medium';
-  font-weight: normal;
+  font-family: 'Lato';
+  font-weight: 700;
 }
 
 .text-medium {
-  font-family: 'Rubik-Regular';
+  font-family: 'Lato';
   font-weight: normal;
 }
 
 .text-light {
-  font-family: 'Rubik-Light';
-  font-weight: normal;
+  font-family: 'Lato';
+  font-weight: 300;
 }
 
 .text-no-underline {
@@ -176,7 +176,7 @@ hr {
 
 label {
   color: #515761;
-  font-family: 'Rubik-Regular';
+  font-family: 'Lato';
   font-size: $font-base-size;
   line-height: $base-spacing * 3;
   letter-spacing: 1px;

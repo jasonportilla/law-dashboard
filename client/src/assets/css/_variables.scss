@@ -1,74 +1,54 @@
 /* Border Radius */
+
 $border-radius-lg: 10px;
 $border-radius-md: 5px;
 $border-radius-sm: 2px;
-
 // COMMON BORDER STYLES
 $box-shadow-styles: 0 0 10px 1px rgba(0, 0, 0, 0.125);
-
 /* Colors */
-$color-primary: #15a4a7;
-$color-primary-light: #a1dbdc;
-$color-primary-dark: #007c89;
 
-$color-primary-link: #007C89;
-$color-primary-link-hover: #005B69;
-$color-primary-link-active: #15A4A7;
-$color-primary-link-visited: #2F343D;
+$color-primary: #274C77;
+$color-primary-light: #6096BA;
+$color-primary-dark: #18283C;
 
-
+$color-primary-link: #274C77;
+$color-primary-link-hover: #18283C;
+$color-primary-link-active: #274C77;
+$color-primary-link-visited: darken($color-primary-dark, 5%);
 $color-primary-light-hover: lighten($color-primary, 5%);
 $color-primary-dark-hover: darken($color-primary, 5%);
 
-$color-secondary: #007c89;
-$color-secondary-light: lighten($color-secondary, 5%);
-$color-secondary-dark: #005B68;
-$color-secondary-darkest: #005b69;
-
-$color-secondary-link: #515761;
-$color-secondary-link-hover: #40454E;
-$color-secondary-link-active: #747981;
-$color-secondary-link-visited: #515761;
-
-$color-text-dark: #515761;
-
+$color-text-dark: #5B5B5B;
 $color-gray-light: #F8F8F8;
 $color-gray-medium: #b9bcc0;
-
 $color-gray-table-header: #DCDDDF;
 $color-gray-form-control: #EDEEEF;
-
 $text-muted: #b9bcc0;
-
-$color-mobile-menu-divider: #35b6b8;
+$color-mobile-menu-divider: #6096BA;
 
 //$text-primary: ;
-$text-success: #639f33;
-$text-info: #0088d7;
-$text-warning: #fdb81e;
-$text-danger: #e4292f;
+$text-success: #59C3C3;
+$text-info: #6096BA;
+$text-warning: #EE8434;
+$text-danger: #FF6D6D;
 
 /* Contextual backgrounds */
-$bg-muted: #f8f8f9;
-//$bg-primary: ;
-$bg-success: #f7faf5;
-$bg-info: #f2fafd;
-$bg-warning: #fffbf4;
-//$bg-danger: ;
-
+$bg-muted: #EFF4F7;
+$bg-secondary: #8789C0;
+$bg-success: #59C3C3;
 /* Fonts */
+
 $font-base-size: 16px;
-
 /* Spacing */
-$base-spacing: 8px;
 
+$base-spacing: 8px;
 /* Responsive Breakpointss */
+
 $screen-sm-min: 768px; // Small screen / tablet
 $screen-md-min: 992px; // Medium screen / desktop
 $screen-lg-min: 1200px; // Large screen / wide desktop
-
 /*Animation*/
+
 $animation-speed-fast: 100ms;
 $animation-speed-medium: 250ms;
 $animation-speed-slow: 400ms;
-
