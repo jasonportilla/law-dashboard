@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./db');
 const auth = require('./routes/auth/authController');
+const clients = require('./routes/clients/clientController');
 
 // Body parser middleware
 app.use(
@@ -39,6 +40,7 @@ db.connect(function (err) {
 
 // Use Routes
 app.use('/auth', auth);
+app.use('/clients', clients);
 
 //Expose app layer
 module.exports = app;
