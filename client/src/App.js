@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './components/CustomButtons/Button';
+import Button from './components/materialComponents/CustomButtons/Button';
 
 const App = () => (
   <div className="App">
