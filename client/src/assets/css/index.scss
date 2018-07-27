@@ -1,13 +1,32 @@
 @import "variables";
-@import "breakpoints";
-@import "helpers";
-@import "typography";
-@import "spacing";
-@import "forms";
-@import "position";
-@import "tables";
-@import "caretIcon";
+// @import "colors";
+// @import "breakpoints";
+// @import "helpers";
+// @import "typography";
+// @import "spacing";
+// @import "forms";
+// @import "position";
+// @import "tables";
+// @import "caretIcon";
+@import "mixins/chartist.scss";
+@import "mixins/sidebar-color.scss";
+@import "mixins/transparency.scss";
+@import "mixins/vendor-prefixes.scss";
+@import "mixins/shadows.scss";
+@import "mixins.scss";
 
-@import "components/loader";
-@import "components/breadcrumbs";
-@import "components/app.scss";
+//@import "components/loader";
+// @import "components/breadcrumbs";
+//@import "components/app.scss";
+@import "components/fileupload.scss";
+
+// plugin css
+@import "plugins/plugin-nouislider";
+@import "plugins/plugin-perfect-scrollbar";
+@import "plugins/plugin-react-datetime";
+@import "plugins/plugin-react-bootstrap-sweetalert";
+@import "plugins/plugin-react-chartist";
+@import "plugins/plugin-react-big-calendar";
+@import "plugins/plugin-react-jvectormap";
+@import "plugins/plugin-react-table";
+@import "plugins/plugin-react-tagsinput";
