@@ -1,0 +1,59 @@
+/* Border Radius */
+
+$border-radius-lg: 10px;
+$border-radius-md: 5px;
+$border-radius-sm: 2px;
+// COMMON BORDER STYLES
+$box-shadow-styles: 0 0 10px 1px rgba(0, 0, 0, 0.125);
+/* Colors */
+
+$color-primary: #6097BA;
+$color-primary-light: #8DBAD7;
+$color-primary-dark: #18283C;
+
+$color-secondary: #3E789E;
+
+$color-primary-link: #6097BA;
+$color-primary-link-hover: #18283C;
+$color-primary-link-active: #8DBAD7;
+$color-primary-link-visited: darken($color-primary-dark, 5%);
+$color-primary-light-hover: lighten($color-primary, 5%);
+$color-primary-dark-hover: darken($color-primary, 5%);
+
+$color-secondary-link-active: #26648C;
+
+$color-text-dark: #5B5B5B;
+$color-gray-light: #81898E;
+$color-gray-table-header: #DCDDDF;
+$color-gray-form-control: #EDEEEF;
+$text-muted: #BBC4C9;
+$color-mobile-menu-divider: #6097BA;
+
+//$text-primary: ;
+$text-success: #60C594;
+$text-info: #6097BA;
+$text-warning: #FFC57C;
+$text-danger: #FF6D6D;
+
+/* Contextual backgrounds */
+$bg-info: #6097BA; 
+$bg-muted: #ededed;
+$bg-secondary: #8789C0;
+$bg-success: #60C594;
+$bg-warning: #FF6D6D;
+/* Fonts */
+
+$font-base-size: 16px;
+/* Spacing */
+
+$base-spacing: 8px;
+/* Responsive Breakpointss */
+
+$screen-sm-min: 768px; // Small screen / tablet
+$screen-md-min: 992px; // Medium screen / desktop
+$screen-lg-min: 1200px; // Large screen / wide desktop
+/*Animation*/
+
+$animation-speed-fast: 100ms;
+$animation-speed-medium: 250ms;
+$animation-speed-slow: 400ms;
