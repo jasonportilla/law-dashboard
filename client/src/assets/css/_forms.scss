@@ -325,16 +325,16 @@ button.mainButton {
   }
 
   &:not(.btn-link):disabled, &:not(.btn-link)[disabled] {
-      background: $color-gray-medium;
-      background-color: $color-gray-medium;
-      border: 1px solid $color-gray-medium;
+      background: $color-gray-light;
+      background-color: $color-gray-light;
+      border: 1px solid $color-gray-light;
       color: #FFF;
       cursor: not-allowed;
 
       &:hover, &:focus, &:active, &:active:hover {
-          background: $color-gray-medium;
-          background-color: $color-gray-medium;
-          border: 1px solid $color-gray-medium;
+          background: $color-gray-light;
+          background-color: $color-gray-light;
+          border: 1px solid $color-gray-light;
           color: #FFF;
           cursor: not-allowed;
       }

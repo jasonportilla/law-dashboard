@@ -7,35 +7,40 @@ $border-radius-sm: 2px;
 $box-shadow-styles: 0 0 10px 1px rgba(0, 0, 0, 0.125);
 /* Colors */
 
-$color-primary: #274C77;
-$color-primary-light: #6096BA;
+$color-primary: #6097BA;
+$color-primary-light: #8DBAD7;
 $color-primary-dark: #18283C;
 
-$color-primary-link: #274C77;
+$color-secondary: #3E789E;
+
+$color-primary-link: #6097BA;
 $color-primary-link-hover: #18283C;
-$color-primary-link-active: #274C77;
+$color-primary-link-active: #8DBAD7;
 $color-primary-link-visited: darken($color-primary-dark, 5%);
 $color-primary-light-hover: lighten($color-primary, 5%);
 $color-primary-dark-hover: darken($color-primary, 5%);
 
+$color-secondary-link-active: #26648C;
+
 $color-text-dark: #5B5B5B;
-$color-gray-light: #F8F8F8;
-$color-gray-medium: #b9bcc0;
+$color-gray-light: #81898E;
 $color-gray-table-header: #DCDDDF;
 $color-gray-form-control: #EDEEEF;
-$text-muted: #b9bcc0;
-$color-mobile-menu-divider: #6096BA;
+$text-muted: #BBC4C9;
+$color-mobile-menu-divider: #6097BA;
 
 //$text-primary: ;
-$text-success: #59C3C3;
-$text-info: #6096BA;
-$text-warning: #EE8434;
+$text-success: #60C594;
+$text-info: #6097BA;
+$text-warning: #FFC57C;
 $text-danger: #FF6D6D;
 
 /* Contextual backgrounds */
-$bg-muted: #EFF4F7;
+$bg-info: #6097BA; 
+$bg-muted: #ededed;
 $bg-secondary: #8789C0;
-$bg-success: #59C3C3;
+$bg-success: #60C594;
+$bg-warning: #FF6D6D;
 /* Fonts */
 
 $font-base-size: 16px;
