@@ -1,16 +1,16 @@
-import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
-import Check from "@material-ui/icons/Check";
-import Clear from "@material-ui/icons/Clear";
+import React from 'react';
+import withStyles from '@material-ui/core/styles/withStyles';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import customInputStyle from "assets/jss/material-dashboard-pro-react/components/customInputStyle.jsx";
+import customInputStyle from '../../../assets/jss/material-dashboard-pro-react/components/customInputStyle';
 
 function CustomInput({ ...props }) {
   const {
@@ -27,8 +27,8 @@ function CustomInput({ ...props }) {
   } = props;
 
   const labelClasses = classNames({
-    [" " + classes.labelRootError]: error,
-    [" " + classes.labelRootSuccess]: success && !error
+    [' ' + classes.labelRootError]: error,
+    [' ' + classes.labelRootSuccess]: success && !error
   });
   const underlineClasses = classNames({
     [classes.underlineError]: error,
@@ -43,7 +43,7 @@ function CustomInput({ ...props }) {
     [classes.input]: true,
     [classes.whiteInput]: white
   });
-  var formControlClasses;
+  let formControlClasses;
   if (formControlProps !== undefined) {
     formControlClasses = classNames(
       formControlProps.className,
@@ -52,17 +52,17 @@ function CustomInput({ ...props }) {
   } else {
     formControlClasses = classes.formControl;
   }
-  var feedbackClasses = classes.feedback;
+  let feedbackClasses = classes.feedback;
   if (inputProps !== undefined) {
     if (inputProps.endAdornment !== undefined) {
-      feedbackClasses = feedbackClasses + " " + classes.feedbackRight;
+      feedbackClasses = `${feedbackClasses  } ${  classes.feedbackRight}`;
     }
   }
   return (
     <FormControl {...formControlProps} className={formControlClasses}>
       {labelText !== undefined ? (
         <InputLabel
-          className={classes.labelRoot + " " + labelClasses}
+          className={`${classes.labelRoot  } ${  labelClasses}`}
           htmlFor={id}
           {...labelProps}
         >
@@ -80,9 +80,9 @@ function CustomInput({ ...props }) {
         {...inputProps}
       />
       {error ? (
-        <Clear className={feedbackClasses + " " + classes.labelRootError} />
+        <Clear className={`${feedbackClasses  } ${  classes.labelRootError}`} />
       ) : success ? (
-        <Check className={feedbackClasses + " " + classes.labelRootSuccess} />
+        <Check className={`${feedbackClasses  } ${  classes.labelRootSuccess}`} />
       ) : null}
     </FormControl>
   );
