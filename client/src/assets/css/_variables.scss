@@ -26,7 +26,7 @@ $white-transparent: rgba($white-color, .8);
 $gray-color:  #999999 !default;
 
 $brand-default: #cecece !default;
-$brand-primary: $purple !default;
+$brand-primary: $blue !default;
 $brand-success: $green !default;
 $brand-danger: $red !default;
 $brand-warning: $orange !default;
@@ -73,11 +73,11 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             #999999 !default; // #999999
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-primary:         darken(#6097BA, 6.5%) !default; // #337ab7
+$brand-success:         #60C594 !default;
+$brand-info:            #6097BA !default;
+$brand-warning:         #FFC57C !default;
+$brand-danger:          #FF6D6D !default;
 
 $black-color:           #3C4858 !default;
 
@@ -109,7 +109,7 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
@@ -273,7 +273,7 @@ $input-border-radius-large:      $border-radius-large !default;
 $input-border-radius-small:      $border-radius-small !default;
 
 //** Border color for inputs on focus
-$input-border-focus:             #66afe9 !default;
+$input-border-focus:             #6097BA !default;
 
 //** Placeholder text color
 $input-color-placeholder:        #999 !default;

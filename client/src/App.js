@@ -26,7 +26,13 @@ const App = () => (
       Phasellus mattis nibh ut nisl accumsan, vel lacinia
       risus laoreet.
     </p>
-    <Button color="info">Primary</Button>
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button color="info">Info</Button>
+    <Button color="success">Success</Button>
+    <Button color="warning">Warning</Button>
+    <Button color="danger">Danger</Button>
+    <Button color="rose">Rose</Button>
   </div>
 );
 

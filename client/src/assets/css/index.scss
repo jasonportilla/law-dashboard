@@ -1,13 +1,14 @@
 @import "variables";
-// @import "colors";
-// @import "breakpoints";
-// @import "helpers";
-// @import "typography";
-// @import "spacing";
-// @import "forms";
-// @import "position";
-// @import "tables";
-// @import "caretIcon";
+@import "variables2";
+@import "colors";
+@import "breakpoints";
+@import "helpers";
+@import "typography";
+@import "spacing";
+@import "forms";
+@import "position";
+@import "tables";
+@import "caretIcon";
 @import "mixins/chartist.scss";
 @import "mixins/sidebar-color.scss";
 @import "mixins/transparency.scss";
@@ -15,9 +16,9 @@
 @import "mixins/shadows.scss";
 @import "mixins.scss";
 
-//@import "components/loader";
-// @import "components/breadcrumbs";
-//@import "components/app.scss";
+@import "components/loader";
+@import "components/breadcrumbs";
+@import "components/app.scss";
 @import "components/fileupload.scss";
 
 // plugin css
