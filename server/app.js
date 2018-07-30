@@ -29,14 +29,24 @@ app.use(function (req, res, next) {
 
 //Establish connection to database on the start of the API layer
 //This will then create a pool that is used while the app is running
-db.connect(function (err) {
-	if (err) {
-		console.log('Unable to connect to MySQL.');
-		process.exit(1);
-	} else {
-		console.log('Connected to MySQL DB');
-	}
-});
+// db.connect(function (err) {
+// 	if (err) {
+// 		console.log('Unable to connect to MySQL.');
+// 		process.exit(1);
+// 	} else {
+// 		console.log('Connected to MySQL DB');
+// 	}
+// });
+
+db
+	.authenticate()
+	.then(() => {
+		console.log('Connection has been established successfully.');
+	})
+	.catch(err => {
+		console.error('Unable to connect to the database:', err);
+	});
+
 
 // Use Routes
 app.use('/auth', auth);
