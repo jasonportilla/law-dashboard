@@ -16,7 +16,6 @@ const sequelize = new Sequelize('law_dashboard', 'root', 'root', {
 	},
 });
 
-
 //This will be the public function to create a mysql connection
 // exports.connect = function () {
 
