@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
+const bcrypt = require('bcryptjs');
 const db = require('../db');
 
-const User = db.define('user', {
+const userSchema = db.define('user', {
 	user_id: {
 		type: Sequelize.INTEGER,
 		primaryKey: true,
@@ -20,6 +21,7 @@ const User = db.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false,
 		trim: true,
+		unique: true,
 	},
 	email: {
 		type: Sequelize.STRING,
@@ -35,19 +37,40 @@ const User = db.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false,
 	},
-});
+},
+{
+	hooks: {
+		beforeValidate: hashPassword,
+	},
+},
+{
+	instanceMethods: {
+		comparePasswords,
+	},
+}
+);
 
-// force: true will drop the table if it already exists
-User.sync({ force: true }).then(() => {
-	// Table created
-	return User.create({
-		firstName: 'Jason',
-		lastName: 'Portilla',
-		username: 'portillaj',
-		email: 'jason.portilla85@gmail.com',
-		company_name: 'Bigney Law Firm',
-		password: 'port6911',
+userSchema.belongsTo(userSchema);
+
+userSchema.sync({ force: true });
+
+function comparePasswords(password, callback) {
+	bcrypt.compare(password, this.password, (error, isMatch) => {
+		if (error) {
+			return callback(error);
+		}
+		return callback(null, isMatch);
 	});
-});
+}
 
-module.exports = User;
+// Hashes the password for user Object
+function hashPassword(user) {
+	if (user.changed('password')) {
+		return bcrypt.hash(user.password, 10)
+			.then(password => {
+				user.password = password;
+			});
+	}
+}
+
+module.exports = userSchema;
