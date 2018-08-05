@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
+const accessSchema = require('./Access');
 
 const userSchema = db.define('user', {
 	user_id: {
 		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true,
+		unique: true,
 	},
 	firstName: {
 		type: Sequelize.STRING,
@@ -29,10 +29,6 @@ const userSchema = db.define('user', {
 		unique: true,
 		trim: true,
 	},
-	company_name: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
 	password: {
 		type: Sequelize.STRING,
 		allowNull: false,
@@ -49,8 +45,6 @@ const userSchema = db.define('user', {
 	},
 }
 );
-
-userSchema.belongsTo(userSchema);
 
 userSchema.sync({ force: true });
 

@@ -1,5 +1,6 @@
 const express = require('express');
-const app = express();
+const helmet = require('helmet');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const passport = require('passport');
@@ -8,6 +9,11 @@ const hookJWTStrategy = require('./config/authentication/passportStrategy');
 const db = require('./db');
 const auth = require('./routes/auth/authController');
 const clients = require('./routes/clients/clientController');
+
+const app = express();
+
+app.use(helmet());
+app.use(cors());
 
 // Body parser middleware
 app.use(
