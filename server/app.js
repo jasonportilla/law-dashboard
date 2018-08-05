@@ -6,13 +6,27 @@ const morgan = require('morgan');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const hookJWTStrategy = require('./config/authentication/passportStrategy');
-const db = require('./db');
+const db = require('./models');
+require('dotenv').config();
 const auth = require('./routes/auth/authController');
 const clients = require('./routes/clients/clientController');
 
 const app = express();
 
 app.use(helmet());
+
+
+const whitelist = ['http://localhost', 'http://example2.com'];
+const corsOptions = {
+	origin (origin, callback) {
+		if (whitelist.indexOf(origin) !== -1) {
+			callback(null, true);
+		} else {
+			callback(new Error('Not allowed by CORS'));
+		}
+	},
+};
+
 app.use(cors());
 
 // Body parser middleware
@@ -45,16 +59,6 @@ app.use(function (req, res, next) {
 	);
 	next();
 });
-
-db
-	.authenticate()
-	.then(() => {
-		console.log('Connection has been established successfully.');
-	})
-	.catch(err => {
-		console.error('Unable to connect to the database:', err);
-	});
-
 
 // Use Routes
 app.use('/auth', auth);

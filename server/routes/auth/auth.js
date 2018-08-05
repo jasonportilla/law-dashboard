@@ -2,9 +2,9 @@ const login = require('../../config/authentication/passportStrategy');
 
 //This is the get function that is called by the controller
 exports.getLogin = function (done) {
-	User.findAll().then(users => {
-		done(null, users);
-	});
+	// User.findAll().then(users => {
+	// 	done(null, users);
+	// });
 };
 
 exports.accessCode = () => {
