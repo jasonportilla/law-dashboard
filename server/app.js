@@ -1,9 +1,33 @@
 const express = require('express');
-const app = express();
+const helmet = require('helmet');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-const db = require('./db');
+const morgan = require('morgan');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const hookJWTStrategy = require('./config/authentication/passportStrategy');
+const db = require('./models');
+require('dotenv').config();
 const auth = require('./routes/auth/authController');
 const clients = require('./routes/clients/clientController');
+
+const app = express();
+
+app.use(helmet());
+
+
+const whitelist = ['http://localhost', 'http://example2.com'];
+const corsOptions = {
+	origin (origin, callback) {
+		if (whitelist.indexOf(origin) !== -1) {
+			callback(null, true);
+		} else {
+			callback(new Error('Not allowed by CORS'));
+		}
+	},
+};
+
+app.use(cors());
 
 // Body parser middleware
 app.use(
@@ -12,6 +36,15 @@ app.use(
 	})
 );
 app.use(bodyParser.json());
+
+// Hook up the HTTP logger
+app.use(morgan('dev'));
+
+// Hook up Passport
+app.use(passport.initialize());
+
+// Hook the passport JWT Strategy
+hookJWTStrategy(passport);
 
 //Set HEADERS and the allowed verb actions for API layer
 app.use(function (req, res, next) {
@@ -26,27 +59,6 @@ app.use(function (req, res, next) {
 	);
 	next();
 });
-
-//Establish connection to database on the start of the API layer
-//This will then create a pool that is used while the app is running
-// db.connect(function (err) {
-// 	if (err) {
-// 		console.log('Unable to connect to MySQL.');
-// 		process.exit(1);
-// 	} else {
-// 		console.log('Connected to MySQL DB');
-// 	}
-// });
-
-db
-	.authenticate()
-	.then(() => {
-		console.log('Connection has been established successfully.');
-	})
-	.catch(err => {
-		console.error('Unable to connect to the database:', err);
-	});
-
 
 // Use Routes
 app.use('/auth', auth);
