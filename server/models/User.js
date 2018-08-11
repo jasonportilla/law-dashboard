@@ -1,53 +1,26 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const { comparePasswords, hashPassword } = require('../utils/helperFunctions');
 
-const User = db.define('user', {
-	user_id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true,
+const modelOptions = {
+	instanceMethods: {
+		comparePasswords,
 	},
-	firstName: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		trim: true,
+	hooks: {
+		beforeValidate: hashPassword,
 	},
-	lastName: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	username: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		trim: true,
-	},
-	email: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		unique: true,
-		trim: true,
-	},
-	company_name: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	password: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-});
+};
 
-// force: true will drop the table if it already exists
-User.sync({ force: true }).then(() => {
-	// Table created
-	return User.create({
-		firstName: 'Jason',
-		lastName: 'Portilla',
-		username: 'portillaj',
-		email: 'jason.portilla85@gmail.com',
-		company_name: 'Bigney Law Firm',
-		password: 'port6911',
-	});
-});
-
-module.exports = User;
+module.exports = (sequelize, DataTypes) => {
+	var User = sequelize.define('User', {
+		uuid: DataTypes.UUID,
+		firstName: DataTypes.STRING,
+		lastName: DataTypes.STRING,
+		username: DataTypes.STRING,
+		email: DataTypes.STRING,
+		password: DataTypes.STRING,
+	}, modelOptions);
+	User.associate = function(models) {
+		// User belongsTo Firm
+		User.belongsTo(models.Firm);
+	};
+	return User;
+};
