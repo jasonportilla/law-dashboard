@@ -11,7 +11,11 @@ const modelOptions = {
 
 module.exports = (sequelize, DataTypes) => {
 	var User = sequelize.define('User', {
-		uuid: DataTypes.UUID,
+		uuid: {
+			type: DataTypes.UUID,
+			allowNull: false,
+			defaultValue: DataTypes.UUIDV4,
+		},
 		firstName: DataTypes.STRING,
 		lastName: DataTypes.STRING,
 		username: DataTypes.STRING,
