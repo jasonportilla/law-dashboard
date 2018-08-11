@@ -2,12 +2,24 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('Users', {
+		return queryInterface.createTable('users', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
+			},
+			uuid: {
+				type: Sequelize.UUID,
+				allowNull: false,
+				defaultValue: Sequelize.UUIDV4,
+			},
+			FirmId: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'Firms',
+					key: 'id',
+				},
 			},
 			firstName: {
 				type: Sequelize.STRING,
@@ -42,39 +54,9 @@ module.exports = {
 				allowNull: false,
 				type: Sequelize.DATE,
 			},
-		},
-		{
-			hooks: {
-				beforeValidate: hashPassword,
-			},
-		},
-		{
-			instanceMethods: {
-				comparePasswords,
-			},
-		}
-		);
+		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('Users');
+		return queryInterface.dropTable('users');
 	},
 };
-
-function comparePasswords(password, callback) {
-	bcrypt.compare(password, this.password, (error, isMatch) => {
-		if (error) {
-			return callback(error);
-		}
-		return callback(null, isMatch);
-	});
-}
-
-// Hashes the password for user Object
-function hashPassword(user) {
-	if (user.changed('password')) {
-		return bcrypt.hash(user.password, 10)
-			.then(password => {
-				user.password = password;
-			});
-	}
-}
