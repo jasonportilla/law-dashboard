@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
-//const keys = require('../../config/keysLocal');
+// const keys = require('../../config/keysLocal');
 const login = require('../../config/authentication/passportStrategy');
+const { User, Firm } = require('../../models');
 
 //Testing MySQL Connection
 router.get('/', (req, res) => {
@@ -41,16 +43,28 @@ router.post('/logout', (req, res) => {
 // @desc    register user to application
 // @access  Public
 router.post('/register', (req, res) => {
-	// User.findOne({
-	// 	where: {
-	// 		username: req.body.username,
-	// 	} }).then(user => {
-	// 	if (user) {
-	// 		res.json({ msg: 'username already taken ' });
-	// 	}
-	// else {
-	// }
-	//});
+	Firm.create({
+		firmName: req.body.firmName,
+	}).then((firm) => {
+		User.findOne({
+			where: {
+				username: req.body.username,
+			} }).then(user => {
+			if (user) {
+				res.json({ msg: 'username already taken ' });
+			}
+			else {
+				firm.createUser({
+					uuid: sequelize.Utils.generateUUID,
+					firstName: req.body.firstName,
+					lastName: req.body.lastName,
+					username: req.body.username,
+					email: req.body.email,
+					password: req.body.password,
+				}).then((result) => res.send(result));
+			}
+		});
+	});
 });
 
 router.get('/users', (req, res) => {

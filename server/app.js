@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const hookJWTStrategy = require('./config/authentication/passportStrategy');
-const db = require('./models');
 require('dotenv').config();
 const auth = require('./routes/auth/authController');
 const clients = require('./routes/clients/clientController');
@@ -14,20 +13,6 @@ const clients = require('./routes/clients/clientController');
 const app = express();
 
 app.use(helmet());
-
-
-const whitelist = ['http://localhost', 'http://example2.com'];
-const corsOptions = {
-	origin (origin, callback) {
-		if (whitelist.indexOf(origin) !== -1) {
-			callback(null, true);
-		} else {
-			callback(new Error('Not allowed by CORS'));
-		}
-	},
-};
-
-app.use(cors());
 
 // Body parser middleware
 app.use(
