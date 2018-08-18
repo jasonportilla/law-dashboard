@@ -1,4 +1,24 @@
-const { comparePasswords, hashPassword } = require('../utils/helperFunctions');
+const bcrypt = require('bcryptjs');
+
+// Compares two passwords.
+function comparePasswords(password, callback) {
+	bcrypt.compare(password, this.password, function(error, isMatch) {
+		if (error) {
+			return callback(error);
+		}
+
+		return callback(null, isMatch);
+	});
+}
+
+// Hashes the password for a user object.
+function hashPassword(user) {
+	if (user.changed('password')) {
+		return bcrypt.hash(user.password, 10).then(function(password) {
+			user.password = password;
+		});
+	}
+}
 
 const modelOptions = {
 	instanceMethods: {
@@ -26,5 +46,6 @@ module.exports = (sequelize, DataTypes) => {
 		// User belongsTo Firm
 		User.belongsTo(models.Firm);
 	};
+
 	return User;
 };
