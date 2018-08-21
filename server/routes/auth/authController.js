@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
-// const keys = require('../../config/keysLocal');
 const login = require('../../config/authentication/passportStrategy');
 const { User, Firm } = require('../../models');
 
@@ -15,21 +14,29 @@ router.get('/', (req, res) => {
 // @desc    login user to application
 // @access  Private
 router.post('/login', (req, res) => {
-	// User.findOne({ username }).then(user => {
-	// 	const payload = { firstName: user.firstName, lastName: user.lastName }; // Create JWT Payload
-	// 	// Sign Token
-	// 	jwt.sign(
-	// 		payload,
-	// 		keys.secretOrKey,
-	// 		{ expiresIn: 3600 },
-	// 		(err, token) => {
-	// 			res.json({
-	// 				success: true,
-	// 				token: 'Bearer ' + token,
-	// 			});
-	// 		}
-	// 	);
-	// });
+	User.findAll({
+		where: {
+			username: req.body.username,
+		},
+	}).then(user => {
+		console.log('the user ', user);
+		const payload = { 
+			username: user.username,
+			password: user.password,
+		}; // Create JWT Payload
+		// Sign Token
+		jwt.sign(
+			payload,
+			process.env.AUTH_SECRET,
+			{ expiresIn: 3600 },
+			(err, token) => {
+				res.json({
+					success: true,
+					token: 'Bearer ' + token,
+				});
+			}
+		);
+	});
 });
 
 // @route   POST /auth/logout
