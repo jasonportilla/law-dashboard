@@ -983,8 +983,18 @@ button.mainButton {
     padding-right: 12px;
     display: inline-block; }
 
-.testing {
-  color: #6097BA; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+.App {
+  background-color: #EFF4F7;
+  margin: 0;
+  height: 100vh; }
+  .App .app-content {
+    width: 100%; }
 
 .btn-file {
   position: relative;
@@ -1143,6 +1153,23 @@ button.mainButton {
       width: 100%; }
   .picture-container .picture-src {
     width: 100%; }
+
+.unauthenticated-header {
+  display: flex;
+  align-items: center;
+  width: 100%; }
+  .unauthenticated-header h3 {
+    width: 100%;
+    margin-top: 16px; }
+  .unauthenticated-header ul {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: flex-end;
+    margin-right: 30px; }
+    .unauthenticated-header ul li {
+      margin-left: 40px; }
 
 /*! nouislider - 10.0.0 - 2016-12-10 16:00:32 */
 /* Functional styling;

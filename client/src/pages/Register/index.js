@@ -5,10 +5,10 @@ class Register extends Component {
     return (
       <div>
         <h1>
-          Register Page
+            Register Page
         </h1>
       </div>
-    )
+    );
   }
 }
 
