@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
 const login = require('../../config/authentication/passportStrategy');
@@ -14,28 +15,45 @@ router.get('/', (req, res) => {
 // @desc    login user to application
 // @access  Private
 router.post('/login', (req, res) => {
-	User.findAll({
+
+	const username = req.body.username;
+	const password = req.body.password;
+
+	User.findOne({
 		where: {
-			username: req.body.username,
+			username,
 		},
 	}).then(user => {
-		console.log('the user ', user);
-		const payload = { 
-			username: user.username,
-			password: user.password,
-		}; // Create JWT Payload
-		// Sign Token
-		jwt.sign(
-			payload,
-			process.env.AUTH_SECRET,
-			{ expiresIn: 3600 },
-			(err, token) => {
-				res.json({
-					success: true,
-					token: 'Bearer ' + token,
-				});
+		if (!user) {
+			res.json({ msg: 'user not found' });
+		}
+
+		// Check Password
+		bcrypt.compare(password, user.password).then(isMatch => {
+			if (isMatch) {
+
+				// User Matched
+				const payload = {
+					username: user.username,
+					password: user.password,
+				};
+
+				// Sign Token
+				jwt.sign(
+					payload,
+					process.env.AUTH_SECRET,
+					{ expiresIn: 3600 },
+					(err, token) => {
+						res.json({
+							success: true,
+							token: 'Bearer ' + token,
+						});
+					}
+				);
+			} else {
+				return res.status(400).json({ msg: 'password is incorrect' });
 			}
-		);
+		});
 	});
 });
 
@@ -43,7 +61,7 @@ router.post('/login', (req, res) => {
 // @desc    logout user from the application
 // @access  Private
 router.post('/logout', (req, res) => {
-
+	res.res;
 });
 
 // @route   POST /auth/register
@@ -75,8 +93,11 @@ router.post('/register', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-	// User.findAll().then(users => res.json(users));
-	// Firm.findAll().then(firms => res.json(firms));
+	User.findAll({
+		include: [{
+			model: Firm,
+		}],
+	}).then(users => res.json(users));
 });
 
 // @route   POST /auth/forgotPassword
