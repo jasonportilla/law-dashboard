@@ -1,16 +1,5 @@
 const bcrypt = require('bcryptjs');
 
-// Compares two passwords.
-function comparePasswords(password, callback) {
-	bcrypt.compare(password, this.password, function(error, isMatch) {
-		if (error) {
-			return callback(error);
-		}
-
-		return callback(null, isMatch);
-	});
-}
-
 // Hashes the password for a user object.
 function hashPassword(user) {
 	if (user.changed('password')) {
@@ -21,9 +10,6 @@ function hashPassword(user) {
 }
 
 const modelOptions = {
-	instanceMethods: {
-		comparePasswords,
-	},
 	hooks: {
 		beforeValidate: hashPassword,
 	},
