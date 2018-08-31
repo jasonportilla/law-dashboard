@@ -1,0 +1,53 @@
+.register-box { 
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  .register-image {
+    height: 527;
+    width: 200px;
+  }
+  .register-box-contents {
+    background-color: white;
+    height: 527px;
+  }
+  .register-box-form {
+    width: 591px;
+    height: 527px;
+    .welcome-back {
+      padding-top: $base-spacing * 11;
+      text-align: center;
+      font-size: 32px;
+    }
+    .register-input {
+      display: flex;
+      justify-content: center;
+      margin-top: -32px;
+      form {
+        width: 60%;
+        #float {
+          margin-bottom: 2px;
+          color: $color-primary;
+          text-align: center;
+        }
+        .CustomInput-labelRoot-98 {
+          color: $color-primary !important;
+          left: 40%;
+        }
+      }
+    }
+    .forgot-password {
+      display: flex;
+      justify-content: center;
+      color: $color-gray-light;
+    }
+    .register-button {
+      display: block;
+      margin: 0 auto;
+      width: 321px;
+      font-size: 20px;
+      margin-top: $base-spacing * 6;
+    }
+  }
+}

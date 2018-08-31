@@ -1171,6 +1171,49 @@ button.mainButton {
     .unauthenticated-header ul li {
       margin-left: 40px; }
 
+.register-box {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
+  .register-box .register-image {
+    height: 527;
+    width: 200px; }
+  .register-box .register-box-contents {
+    background-color: white;
+    height: 527px; }
+  .register-box .register-box-form {
+    width: 591px;
+    height: 527px; }
+    .register-box .register-box-form .welcome-back {
+      padding-top: 88px;
+      text-align: center;
+      font-size: 32px; }
+    .register-box .register-box-form .register-input {
+      display: flex;
+      justify-content: center;
+      margin-top: -32px; }
+      .register-box .register-box-form .register-input form {
+        width: 60%; }
+        .register-box .register-box-form .register-input form #float {
+          margin-bottom: 2px;
+          color: #6097BA;
+          text-align: center; }
+        .register-box .register-box-form .register-input form .CustomInput-labelRoot-98 {
+          color: #6097BA !important;
+          left: 40%; }
+    .register-box .register-box-form .forgot-password {
+      display: flex;
+      justify-content: center;
+      color: #81898E; }
+    .register-box .register-box-form .register-button {
+      display: block;
+      margin: 0 auto;
+      width: 321px;
+      font-size: 20px;
+      margin-top: 48px; }
+
 /*! nouislider - 10.0.0 - 2016-12-10 16:00:32 */
 /* Functional styling;
  * These styles are required for noUiSlider to function.
