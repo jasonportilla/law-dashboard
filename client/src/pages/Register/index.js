@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Button from '../../components/materialComponents/CustomButtons/Button';
 import GridItem from '../../components/materialComponents/Grid/GridItem';
-import GridContainer from '../../components/materialComponents/Grid/GridContainer';
 import CustomInput from '../../components/materialComponents/CustomInput/CustomInput';
 import registerImage from '../../assets/images/register.jpg';
+
 class Register extends Component {
   render() {
     return (
