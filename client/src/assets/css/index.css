@@ -1171,48 +1171,62 @@ button.mainButton {
     .unauthenticated-header ul li {
       margin-left: 40px; }
 
-.register-box {
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row; }
-  .register-box .register-image {
-    height: 527;
-    width: 200px; }
-  .register-box .register-box-contents {
-    background-color: white;
-    height: 527px; }
-  .register-box .register-box-form {
-    width: 591px;
-    height: 527px; }
-    .register-box .register-box-form .welcome-back {
+.registration-page {
+  position: relative;
+  height: 90vh; }
+  .registration-page * {
+    padding-left: 0;
+    padding-right: 0; }
+  .registration-page .register-box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 527px;
+    width: 880px;
+    background: white;
+    transform: translateY(-50%); }
+    .registration-page .register-box .welcome-back {
       padding-top: 88px;
       text-align: center;
-      font-size: 32px; }
-    .register-box .register-box-form .register-input {
-      display: flex;
-      justify-content: center;
+      font-size: 32px;
+      font-weight: 600;
+      color: #81898E; }
+    .registration-page .register-box form .register-input {
+      width: 70%;
+      margin: 0 auto;
       margin-top: -32px; }
-      .register-box .register-box-form .register-input form {
-        width: 60%; }
-        .register-box .register-box-form .register-input form #float {
-          margin-bottom: 2px;
-          color: #6097BA;
-          text-align: center; }
-        .register-box .register-box-form .register-input form .CustomInput-labelRoot-98 {
-          color: #6097BA !important;
-          left: 40%; }
-    .register-box .register-box-form .forgot-password {
+      .registration-page .register-box form .register-input #float {
+        margin-bottom: 2px;
+        color: #6097BA;
+        text-align: center; }
+      .registration-page .register-box form .register-input .CustomInput-labelRoot-98 {
+        color: #81898E !important;
+        left: 40%; }
+    .registration-page .register-box .forgot-password {
       display: flex;
       justify-content: center;
       color: #81898E; }
-    .register-box .register-box-form .register-button {
+    .registration-page .register-box .register-button {
       display: block;
       margin: 0 auto;
       width: 321px;
       font-size: 20px;
       margin-top: 48px; }
+  .registration-page .register-info {
+    position: relative;
+    height: 527px;
+    width: 100%; }
+    .registration-page .register-info .register-info-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(57, 53, 53, 0.8);
+      height: 100%;
+      width: 100%; }
+    .registration-page .register-info .register-photo {
+      height: 100%;
+      width: 100%; }
 
 /*! nouislider - 10.0.0 - 2016-12-10 16:00:32 */
 /* Functional styling;

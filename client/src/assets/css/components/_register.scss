@@ -1,38 +1,38 @@
-.register-box { 
+.registration-page {
+  * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  position: relative;
   height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  .register-image {
-    height: 527;
-    width: 200px;
-  }
-  .register-box-contents {
-    background-color: white;
+  .register-box { 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
     height: 527px;
-  }
-  .register-box-form {
-    width: 591px;
-    height: 527px;
+    width: 880px;
+    background: white;
+    transform: translateY(-50%);
     .welcome-back {
       padding-top: $base-spacing * 11;
       text-align: center;
       font-size: 32px;
+      font-weight: 600;
+      color: $color-gray-light;
     }
-    .register-input {
-      display: flex;
-      justify-content: center;
-      margin-top: -32px;
-      form {
-        width: 60%;
+    form {
+      .register-input {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: -32px;
         #float {
           margin-bottom: 2px;
           color: $color-primary;
           text-align: center;
         }
         .CustomInput-labelRoot-98 {
-          color: $color-primary !important;
+          color: $color-gray-light !important;
           left: 40%;
         }
       }
@@ -50,4 +50,22 @@
       margin-top: $base-spacing * 6;
     }
   }
+  .register-info {
+    position: relative;
+    height: 527px;
+    width: 100%;
+    .register-info-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(57,53,53,0.8);
+      height: 100%;
+      width: 100%;
+    }
+    .register-photo {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
 }
